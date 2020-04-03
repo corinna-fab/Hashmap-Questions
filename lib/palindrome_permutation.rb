@@ -1,21 +1,22 @@
+#Time complexity: O(n)
+#Space complexity: O(n)
 
 def palindrome_permutation?(string)
 
   return true if string == ""
 
-  hash = string.split("").each_with_object(Hash.new(0)) do |char, hash|
-    hash[char] += 1
-  end
-  
+  counts = {}
   not_palindrome = 0
 
-  hash.each do |key, value|
-    if hash[key] != 2
-      not_palindrome += 1
-    end
+  string.split("").each do |char|
+    counts[char] ? counts[char] += 1 : counts[char] = 1
   end
 
-  return not_palindrome == 1
+  counts.each do |key, value|
+    counts[key].even? ? next : not_palindrome += 1
+  end
+
+  return not_palindrome <= 1
 
 end
 

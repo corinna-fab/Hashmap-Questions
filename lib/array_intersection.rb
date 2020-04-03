@@ -1,3 +1,6 @@
+#Time complexity: O(n)
+#Space complexity: O(n)
+
 def intersection(list1, list2)
 
   intersection = {}
