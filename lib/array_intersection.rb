@@ -1,11 +1,25 @@
 def intersection(list1, list2)
 
-  intersection = []
+  intersection = {}
+
+  match = []
 
   list1.each do |num|
-    intersection << num if list2.include?(num) == true
+    if intersection[num]
+      intersection[num] += 1
+    else
+      intersection[num] = 1
+    end
   end
-  return intersection
+
+  list2.each do |num|
+    if intersection[num]
+      match << num
+    end
+  end
+
+  p match
+
 end
 
-intersection([2, 3, 4], [4, 5, 6])
+# intersection([2, 3, 4], [4, 5, 6])
